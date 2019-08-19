@@ -1,0 +1,138 @@
+.header {
+    background-image: url('/openWeatherJS/assets/background-1440.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.header h1 {
+    font-size: 60px;
+}
+
+.header p {
+    font-size: 24px;
+}
+
+.header li {
+    font-size: 18px;
+}
+
+#activeCelsius {
+    border-bottom: 2px solid;
+}
+
+.header input {
+    font-size: 18px;
+}
+
+#hamburgerIcon {
+    display: none;
+    width: 65px;
+}
+
+#nav-sidebar-closed {
+    display: none;
+}
+
+#nav-sidebar-open {
+    position: absolute;
+    display: block;
+    width: 60%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    left: 0;
+    z-index: 1;
+    text-decoration: none;
+
+}
+
+#languages li {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    background: #f1f1f1; 
+}
+
+
+
+#languagesListItem {
+    position: absolute;
+    height: auto;
+    max-height: 200px;
+    overflow-x: auto;
+    text-align: left;
+    font-weight: 800;
+    background: white;
+    overflow-y: scroll;
+
+}
+#languagesListItem li {
+    color:white;
+}
+#metricDisabled {
+    font-size: 12px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+#nav-sidebar-open ul {
+    font-family: 'Lato', sans-serif;
+
+}
+
+#nav-sidebar-open li:hover {
+    background-color: #0e8ea6;
+}
+
+#searchBtn {
+    background: #0e8ea6;
+    color: white;
+}
+
+#searchWeather {
+    height: 50px;
+}
+
+@media (max-width: 990px) {
+    #hamburgerIcon {
+        display: block;
+        z-index: 100;
+    }
+
+    .jumbotron {
+        padding-top: 0;
+    }
+
+    #searchBtn {
+        display: block;
+        width: 65%;
+        margin: auto;
+        margin-top: 15px;
+        height: 100%;
+    }
+
+    #searchWeather {
+        display: block;
+        width: 100%;
+        padding-top: 0;
+        margin-top: 0;
+
+    }
+
+    .header input {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    #searchWeather {
+        font-size: 11px;
+    }
+}

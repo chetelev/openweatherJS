@@ -1,12 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weather</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Open Weather</title>
 </head>
+
 <body>
-    
+    <div id="nav-sidebar-closed">
+        <ul class="list-group" id="dropdownUl">
+            <p><img src="/openWeatherJS/assets/close.png" class="pt-3 ml-3" alt="close" id="closeHamburger"></p>
+            <p class="list-group-item p-3 font-weight-light" id="metricDisabled">METRIC</p>
+            <li class="list-group-item p-3 font-weight-normal">Kelvin</li>
+            <li class=" list-group-item p-3 " id="activeDropdownLinkBg">Celsius</li>
+            <li class="list-group-item p-3 ">Fahrenheit</li>
+        </ul>
+    </div>
+    <div class=" header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+                <a><img src="/openWeatherJS/assets/50d.png" alt="hamburger" id="hamburgerIcon"></a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <li class="nav-link disabled">Metric:</li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kelvin</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#" id="activeCelsius">Celsius</u></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Fahrenheit</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav ml-auto" id="languages">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> English</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="languagesListItem">
+                            <a class="dropdown-item" href="#">Arabic</a>
+                            <a class="dropdown-item" href="#">Bulgarian</a>
+                            <a class="dropdown-item" href="#">Catalan</a>
+                            <a class="dropdown-item" href="#">Czech</a>
+                            <a class="dropdown-item" href="#">German</a>
+                            <a class="dropdown-item" href="#">Greek</a>
+                            <a class="dropdown-item  active" href="#">English</a>
+                            <a class="dropdown-item" href="#">Persian</a>
+                            <a class="dropdown-item" href="#">Finnish</a>
+                            <a class="dropdown-item" href="#">French</a>
+                            <a class="dropdown-item" href="#">Japanese</a>
+                            <a class="dropdown-item" href="#">Latvian</a>
+                            <a class="dropdown-item" href="#">Macedonian</a>
+                            <a class="dropdown-item" href="#">Serbian</a>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <section class="jumbotron text-center bg-transparent">
+                <h1 class="display-4 mt-0">OPEN WEATHER</h1>
+                <p class="lead">SEARCH FOR CURRENT WEATHER DATA</p>
+                <div class="input-group w-50 mb-3 text-center m-auto pt-5">
+                    <input type="text" class="form-control" placeholder="Enter location, City, Country or ZIP code..."
+                        aria-label="Recipient's username" aria-describedby="button-addon2" id="searchWeather">
+                    <button type="button" class="btn p-1" id="searchBtn">SEARCH</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>
