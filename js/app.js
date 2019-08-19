@@ -10,4 +10,4 @@ closeHamburger.addEventListener('click', function () {
 })
 
 
-// TODO 1.add animation to hamburger / 2. shadow border to languages box / 3. language box scrollbar design /4.
+// TODO 1.add animation to hamburger / 2. shadow border to languages box / 3. language box scrollbar design /
