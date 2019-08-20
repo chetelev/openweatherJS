@@ -1,5 +1,5 @@
 .header {
-    background-image: url('/openWeatherJS/assets/background-1440.png');
+    background-image: url('../assets/background-1440.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -11,14 +11,21 @@
 
 .header h1 {
     font-size: 60px;
+    font-weight: 900;
 }
 
 .header p {
     font-size: 24px;
+    font-weight: 300;
 }
 
 .header li {
     font-size: 18px;
+    font-weight: 300;
+}
+
+#metricSpan {
+    color: white;
 }
 
 #activeCelsius {
@@ -27,11 +34,12 @@
 
 .header input {
     font-size: 18px;
+    font-weight: 300;
 }
 
 #hamburgerIcon {
     display: none;
-    width: 65px;
+    width: 45px;
 }
 
 #nav-sidebar-closed {
@@ -44,69 +52,140 @@
     width: 60%;
     height: 100%;
     background-color: white;
-    color: black;
+    color: #4d4d4d;
     left: 0;
-    z-index: 1;
+    z-index: 100;
     text-decoration: none;
-
 }
 
 #languages li {
     text-decoration: none;
+
+}
+
+::-webkit-scrollbar-track {
+    background-color: white;
 }
 
 ::-webkit-scrollbar {
-    background: #f1f1f1; 
+    width: 2px;
+    background-color: white;
 }
 
-
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
 
 #languagesListItem {
     position: absolute;
     height: auto;
-    max-height: 200px;
-    overflow-x: auto;
+    max-height: 270px;
+    overflow: auto;
     text-align: left;
     font-weight: 800;
     background: white;
-    overflow-y: scroll;
+    -moz-box-shadow: inset 0 0 5px #888;
+    -webkit-box-shadow: inset 0 0 5px#888;
+    box-shadow: inner 0 0 5px #888;
+}
 
+#languagesListItem a {
+    color: #4d4d4d;
 }
-#languagesListItem li {
-    color:white;
+
+#languagesListItem a:hover {
+    color: #0e8ea6;
 }
+
+#languagesListItem a span {
+    color: #0e8ea6;
+}
+
 #metricDisabled {
-    font-size: 12px;
-    font-family: 'Lato', sans-serif;
-
+    font-size: 10px;
+    font-weight: 100;
 }
 
 #nav-sidebar-open ul {
     font-family: 'Lato', sans-serif;
-
 }
 
 #nav-sidebar-open li:hover {
     background-color: #0e8ea6;
+    color: white;
 }
 
 #searchBtn {
     background: #0e8ea6;
     color: white;
+    font-weight: 900;
 }
 
 #searchWeather {
     height: 50px;
+
+}
+
+#inputGroup {
+    background: rgba(255, 255, 255, 0.2);
+    width: auto;
+
+}
+
+#inputGroup {
+    padding: 0px
+}
+
+#w-temp {
+    color: #0e8ea6;
+    font-size: 42px;
+    font-weight: 900;
+}
+
+#w-icon {
+    width: 100px;
+    height: 100px;
+}
+
+#w-details {
+    padding-left: 0px;
+    text-align: left;
+}
+
+#w-details li {
+    border: none;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #4d4d4d;
+    font-weight: 300;
+}
+
+#weatherInfo {
+    font-size: 24px;
+    color: #4d4d4d;
+    font-weight: 300;
+}
+
+#w-desc {
+    color: #0e8ea6;
+    font-size: 14px;
+    font-weight: 900;
 }
 
 @media (max-width: 990px) {
+    #inputGroup {
+        background: rgba(255, 255, 255, 0.0);
+        width: auto;
+    }
+
     #hamburgerIcon {
         display: block;
         z-index: 100;
     }
 
     .jumbotron {
-        padding-top: 0;
+        padding-top: 10;
     }
 
     #searchBtn {
@@ -122,17 +201,75 @@
         width: 100%;
         padding-top: 0;
         margin-top: 0;
+    }
+
+    #inputGroup button {
+        width: 200px;
+        display: block !important;
 
     }
 
     .header input {
         font-size: 16px;
     }
+
+    .header h1 {
+        font-size: 50px;
+    }
+
+    .header p {
+        font-size: 18px;
+    }
+
+    .header li {
+        font-size: 14px;
+    }
+
 }
 
 @media only screen and (max-width: 600px) {
 
+    #inputGroup {
+        background: rgba(255, 255, 255, 0.0);
+        width: auto;
+
+    }
+
+    #inputGroup button {
+        width: 100px;
+        display: block !important;
+
+    }
+
+
     #searchWeather {
         font-size: 11px;
+        width: 250px;
+    }
+
+    .header h1 {
+        font-size: 40px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .header li {
+        font-size: 11px;
+    }
+
+    #languagesListItem {
+        position: absolute;
+        height: auto;
+        max-height: 170px;
+        overflow: auto;
+        text-align: left;
+        font-weight: lighter;
+        font-size: 10px;
+        background: white;
+        -moz-box-shadow: inset 0 0 5px #888;
+        -webkit-box-shadow: inset 0 0 5px#888;
+        box-shadow: inner 0 0 5px #888;
     }
 }
