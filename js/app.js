@@ -1,7 +1,11 @@
+const weather = new Weather
+const ui = new UI
+
 const hamburgerDropdown = document.querySelector('#hamburgerIcon');
 const hamburgerList = document.querySelector('#nav-sidebar-closed')
 const closeHamburger = document.querySelector('#closeHamburger')
 const searchWeather = document.querySelector('#searchWeather')
+const searchBtn = document.querySelector('#searchBtn')
 const weatherDesc = document.querySelector('#w-desc')
 const weatherTemp = document.querySelector('#w-temp')
 const weatherLocation = document.querySelector('#w-location')
@@ -9,6 +13,10 @@ const weatherPerception = document.querySelector('#w-perception')
 const weatherHumidity = document.querySelector('#w-humidity')
 const weatherWind = document.querySelector('#w-wind')
 const weatherIcon = document.querySelector('#w-icon')
+const weatherInfo = document.querySelector('#weatherInfo')
+const openWeatherTitle = document.querySelector('#openWeatherTitle')
+const countryInit = document.querySelector('#countryInit')
+const fahren = document.querySelector('#fahren')
 let row = document.querySelector('#row')
 
 hamburgerDropdown.addEventListener('click', function () {
@@ -19,39 +27,45 @@ closeHamburger.addEventListener('click', function () {
     hamburgerList.id = 'nav-sidebar-closed';
 })
 
-function citiesLanding() {
-    var key = 'bfac2187b0c99dfe4c3d79e029a91092';
-    fetch(`http://api.openweathermap.org/data/2.5/group?id=524901,5222866,703448,2643743&units=metric&appid=${key}`)
-        .then(function (resp) {
-            return resp.json()
-        })
-        .then(function (data) {
-            console.log(data)
-            for (let i = 0; i < data.cnt; i++) {
-                let createDiv = document.createElement('div');
-                createDiv.setAttribute('class', 'col-lg-3 mx-auto text-center')
-                createDiv.innerHTML = `   
-                    <img src="assets/${data.list[i].weather[0].icon}.png" id="w-icon">
-                    <h6 id="w-desc">${data.list[i].weather[0].description.toUpperCase()}</h6>
-                         <ul id="w-details" class="mx-auto">    
-                             <li class="list-group-item" id="w-perception">Perception: ${data.list[i].clouds.all}%</li>
-                             <li class="list-group-item" id="w-humidity">Humidity: ${data.list[i].main.humidity}%</li>
-                              <li class="list-group-item" id="w-wind">Wind: ${data.list[i].wind.speed} km/h</li>
-                        </ul>
-                    <h3 id="w-temp">${Math.floor(data.list[i].main.temp)}&deg;C</h3>
-                 <h5 id="w-location">${data.list[i].name.toUpperCase()},${data.list[i].sys.country}</h5>
-                `
-                row.appendChild(createDiv)
-            }
-        })
-        .catch(function (err) {
-            console.log(err)
-        });
-}
-
 window.onload = function () {
-    citiesLanding();
+    weather.getWeather()
+        .then(data => {
+            console.log(data)
+            ui.showMultiCity(data)
+        })
 }
 
+searchBtn.addEventListener('click', function () {
+    const userText = searchWeather.value
+    weather.getWeather(userText)
+        .then(data => {
+            ui.showSingleCity(data)
+        })
+})
 
-// TODO 1.add animation to hamburger / 3. language box scrollbar design /
+searchWeather.addEventListener('keyup', function (e) {
+    const userText = e.target.value
+    if (userText !== '') {
+        weather.getWeather(userText)
+            .then(data => {
+                if (data.city.cod === '404') {
+                    ui.showDefault(data)
+                } else {
+                    ui.showSingleCity(data)
+                }
+
+            })
+    }
+})
+
+// fahren.addEventListener('click', function (e) {
+
+//     let fahren = {}
+//     fahren.unit = 'fahren';
+//     fahren.display = 'F';
+
+//     weather.temp_unit = fahren;
+
+// })
+
+// TODO 1.add animation to hamburger / 2. language box scrollbar design and arrow images / 3.FIX class names /  4. mobile specific view 

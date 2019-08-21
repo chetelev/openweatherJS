@@ -3,10 +3,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 60%;
     color: white;
     font-family: 'Lato', sans-serif;
+}
 
+#row {
+    height: 50%;
 }
 
 .header h1 {
@@ -118,7 +121,7 @@
 #searchBtn {
     background: #0e8ea6;
     color: white;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 #searchWeather {
@@ -135,11 +138,16 @@
 #inputGroup {
     padding: 0px
 }
+#w-location {
+    color: #4d4d4d;
+    font-size: 24px;
+    font-weight: 300;
+}
 
 #w-temp {
     color: #0e8ea6;
     font-size: 42px;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 #w-icon {
@@ -170,13 +178,108 @@
 #w-desc {
     color: #0e8ea6;
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 600;
+}
+
+#specificDivImg img {
+    width: auto;
+    height: auto;
+    float: right;
+}
+
+.specificTemp {
+    margin-bottom: 25px;
+    display: block;
+    clear: left;
+    float: right;
+    padding-right: 5px;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+#specificDivLgSix {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: start;
+    width: auto;
+    height: auto;
+    font-family: 'Lato', sans-serif;
+}
+
+#specificDivLgSix ul li {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+    float: right;
+    clear: both;
+    font-size: 18px;
+    font-weight: 300;
+
+}
+
+#specificDivLgSix h6 {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: end;
+    clear: both;
+}
+
+#specificDivLgFour {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+    color: #4d4d4d;
+}
+
+#specificDivThree {
+    border-left: 1px solid #888;
+    font-family: 'Lato', sans-serif;
+}
+
+.forecastDivs {
+    padding: 20%;
+    float: left;
+}
+
+#dayOne {}
+
+#dayOne div img {
+    width: 50px;
+}
+
+#dayTwo {}
+
+#dayTwo div img {
+    width: 50px;
+}
+
+#dayThree {}
+
+#dayThree div img {
+    width: 50px;
+}
+
+#dayOneMin {
+    color: #0e8ea6;
+    font-weight: 300;
+}
+
+#dayOneMax {
+    color: #0e8ea6;
+    font-weight: 600;
 }
 
 @media (max-width: 990px) {
     #inputGroup {
         background: rgba(255, 255, 255, 0.0);
         width: auto;
+    }
+
+    #cities {
+        padding: 10px;
+        margin: 10px;
     }
 
     #hamburgerIcon {
@@ -235,10 +338,17 @@
 
     }
 
+
     #inputGroup button {
         width: 100px;
         display: block !important;
 
+    }
+
+    #weatherInfo {
+        font-size: 16px;
+        color: #4d4d4d;
+        font-weight: 300;
     }
 
 
