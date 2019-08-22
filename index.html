@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <div id="nav-sidebar-closed">
-        <ul class="list-group" id="dropdownUl">
+    <div id="nav-sidebar-closed" class="anim-trans">
+        <ul class="list-group anim-trans" id="dropdownUl">
             <p><img src="assets/close.png" class="pt-3 ml-3" alt="close" id="closeHamburger"></p>
             <p class="list-group-item p-3 font-weight-light" id="metricDisabled">METRIC</p>
             <li class="list-group-item p-3 font-weight-normal">Kelvin</li>
@@ -67,15 +67,18 @@
             <section class="jumbotron text-center bg-transparent">
                 <h1 class="display-4 mt-0" id="openWeatherTitle">OPEN WEATHER</h1>
                 <p class="lead" id="countryInit">SEARCH FOR CURRENT WEATHER DATA</p>
-                <div class="input-group w-50 mb-3 text-center m-auto p-2" id="inputGroup">
+                <div class="input-group w-75 mb-3 text-center m-auto p-2" id="inputGroup">
                     <input type="text" class="form-control" placeholder="Enter location, City, Country or ZIP code..."
-                        aria-label="Recipient's username" aria-describedby="button-addon2" id="searchWeather">
+                        aria-label="Recipient's username" onfocus="this.placeholder=''"
+                        onblur="this.placeholder='Enter location, City, Country or ZIP code...'"
+                        aria-describedby="button-addon2" id="searchWeather">
                     <button type="button" class="btn p-1" id="searchBtn">SEARCH</button>
                 </div>
             </section>
         </div>
     </div>
-    <p class="display-5 d-flex justify-content-center m-2 pb-5 pt-3" id="weatherInfo">TODAY WEATHER IN FEATURED CITIES</p>
+    <p class="display-5 d-flex justify-content-center m-2 pb-5 pt-3" id="weatherInfo">TODAY WEATHER IN FEATURED CITIES
+    </p>
 
     <div class="container" id="footer">
         <div class="row" id="row">
@@ -93,7 +96,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    
+
     <script src="js/weather.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/app.js"></script>

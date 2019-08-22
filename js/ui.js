@@ -2,13 +2,12 @@ class UI {
 
     constructor() {
         this.weather = document.getElementById('row');
-        // const weather2 = new Weather;
     }
 
     showMultiCity(data) {
         for (let i = 0; i < data.multiCity.cnt; i++) {
             let createDiv = document.createElement('div');
-            createDiv.setAttribute('class', 'col-lg-3 mx-auto text-center')
+            createDiv.setAttribute('class', 'col-lg-3 col-md-3 mx-auto text-center')
             createDiv.setAttribute('id', 'cities')
             createDiv.innerHTML =
                 `   
@@ -37,47 +36,46 @@ class UI {
         }
         row.innerHTML =
             `
-            <div class="col-md-4" id="specificDivImg">
+            <div class="col-md-4 col-sm-2" id="currentCityWeatherImg">
             <img src="assets/${data.city.list[0].weather[0].icon}.png" id="w-icon">
             </div>
-            <div class="col-md-4" id="specificView">
+            <div class="col-md-4 pt-3" id="currentCityWeatherInfo">
                 <div class="row">
-
-                    <div class="col-lg-8" id="specificDivLgSix"> 
-                     <h3 id="w-temp" class="specificTemp">${Math.floor(data.city.list[0].main.temp)}&deg;C</h3>
-                     <h6 id="w-desc">${data.city.list[0].weather[0].description.toUpperCase()}</h6>
-                     <ul id="w-details" class="">    
-                         <li class="list-group-item" id="w-perception">Perception: ${data.city.list[0].clouds.all}%</li>
-                         <li class="list-group-item" id="w-humidity">Humidity: ${data.city.list[0].main.humidity}%</li>
-                         <li class="list-group-item" id="w-wind">Wind: ${data.city.list[0].wind.speed} km/h</li>
-                     </ul>
-                     </div>
-                     <div class="col-md-4" id="specificDivLgFour">
-                        <span class="d-flex align-items-start">max ${Math.floor(data.city.list[0].main.temp_max)}&deg;</span>
-                        <span class="d-flex align-items-end">min ${Math.floor(data.city.list[0].main.temp_min)}&deg;</span>
+                    <div class="col-md-12 col-sm-6" id="currentTempMinMax"> 
+                        <h3 class="pr-3">${Math.floor(data.city.list[0].main.temp)}&deg;C</h3>
+                        <span class="d-block ml-3 ">max ${Math.floor(data.city.list[0].main.temp_max)}&deg;</span>
+                        <span class="d-block ml-3 ">min ${Math.floor(data.city.list[0].main.temp_min)}&deg;</span>
                     </div>
+                     <div class="col-md-12 col-sm-6" id="currentDescInfo">
+                        <h6 id="w-desc">${data.city.list[0].weather[0].description.toUpperCase()}</h6>
+                            <ul id="w-details" class="list-group">    
+                                <li class="list-group-item">Perception: ${data.city.list[0].clouds.all}%</li>
+                                <li class="list-group-item">Humidity: ${data.city.list[0].main.humidity}%</li>
+                                <li class="list-group-item">Wind: ${data.city.list[0].wind.speed} km/h</li>
+                            </ul>
+                    </div>             
                 </div>
-            </div>
+             </div>
             </div>
 
-            <div class="col-md-4" id="specificDivThree">
+            <div class="col-md-4" id="currentCityForecast">
 
                 <div class="row m-3" id="dayOne">
-                        <div class="col-2 col-md-2"> 
+                        <div class="col-md-2 dayOneImgDiv"> 
                             <img src="assets/${data.city.list[8].weather[0].icon}.png">
                         </div>
-                        <div class="col-6 col-md-4">
-                            <h6 class="m-0 pb-1">${days[dateConvertor = new Date(data.city.list[8].dt * 1000).getDay()]}</h6>
+                        <div class="col-md-6 ml-1">
+                            <h6 class="m-0 pb-2">${days[dateConvertor = new Date(data.city.list[8].dt * 1000).getDay()]}</h6>
                             <span id="dayOneMax">${Math.floor(data.city.list[8].main.temp_max)}&deg</span>
                             <span id="dayOneMin">${Math.floor(data.city.list[4].main.temp_min)}&deg</span>
                         </div>
                 </div>
 
                 <div class="row  m-3" id="dayTwo">
-                        <div class="col-2 col-md-2"> 
+                        <div class="col-md-2 dayOneImgDiv"> 
                             <img src="assets/${data.city.list[16].weather[0].icon}.png" class="">
                         </div>
-                        <div class="col-6 col-md-4">
+                        <div class="col-md-6 ml-1">
                             <h6 class="m-0 pb-1">${days[dateConvertor = new Date(data.city.list[16].dt * 1000).getDay()]}</h6>
                             <span id="dayOneMax">${Math.floor(data.city.list[16].main.temp_max)}&deg</span>
                             <span id="dayOneMin">${Math.floor(data.city.list[12].main.temp_min)}&deg</span> 
@@ -85,10 +83,10 @@ class UI {
                  </div> 
 
                  <div class="row  m-3" id="dayThree">      
-                        <div class="col-2 col-md-2"> 
+                        <div class="col-md-2 dayOneImgDiv"> 
                             <img src="assets/${data.city.list[24].weather[0].icon}.png" class="">
                         </div>
-                        <div class="col-6 col-md-4"> 
+                        <div class="col-md-6 ml-1"> 
                             <h6 class="m-0 pb-1">${days[dateConvertor = new Date(data.city.list[24].dt * 1000).getDay()]}</h6>
                             <span id="dayOneMax">${Math.floor(data.city.list[24].main.temp_max)}&deg</span>
                             <span id="dayOneMin">${Math.floor(data.city.list[20].main.temp_min)}&deg</span>

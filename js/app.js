@@ -17,10 +17,10 @@ const weatherInfo = document.querySelector('#weatherInfo')
 const openWeatherTitle = document.querySelector('#openWeatherTitle')
 const countryInit = document.querySelector('#countryInit')
 const fahren = document.querySelector('#fahren')
-let row = document.querySelector('#row')
+const row = document.querySelector('#row')
 
 hamburgerDropdown.addEventListener('click', function () {
-    hamburgerList.className = 'anim-trans';
+    // hamburgerList.className = 'anim-trans';
     hamburgerList.id = 'nav-sidebar-open';
 })
 closeHamburger.addEventListener('click', function () {
@@ -43,7 +43,7 @@ searchBtn.addEventListener('click', function () {
         })
 })
 
-searchWeather.addEventListener('keyup', function (e) {
+searchWeather.addEventListener('keydown', function (e) {
     const userText = e.target.value
     if (userText !== '') {
         weather.getWeather(userText)
@@ -58,6 +58,7 @@ searchWeather.addEventListener('keyup', function (e) {
     }
 })
 
+
 // fahren.addEventListener('click', function (e) {
 
 //     let fahren = {}
@@ -67,5 +68,3 @@ searchWeather.addEventListener('keyup', function (e) {
 //     weather.temp_unit = fahren;
 
 // })
-
-// TODO 1.add animation to hamburger / 2. language box scrollbar design and arrow images / 3.FIX class names /  4. mobile specific view 
