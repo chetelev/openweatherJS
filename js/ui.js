@@ -1,10 +1,14 @@
+// Creating UI Class
 class UI {
-
+    
     constructor() {
         this.weather = document.getElementById('row');
     }
 
     showMultiCity(data) {
+        this.weather.innerHTML = ''
+        openWeatherTitle.innerHTML = 'OPEN WEATHER'
+        countryInit.innerHTML = 'SEARCH FOR CURRENT WEATHER DATA'
         for (let i = 0; i < data.multiCity.cnt; i++) {
             let createDiv = document.createElement('div');
             createDiv.setAttribute('class', 'col-lg-3 col-md-3 mx-auto text-center')
@@ -25,7 +29,7 @@ class UI {
         }
     }
 
-    showSingleCity(data) {
+    showSingleCity(data, metric) {
         let dateConvertor
         let date = new Date;
         var days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
@@ -42,7 +46,7 @@ class UI {
             <div class="col-md-4 pt-3" id="currentCityWeatherInfo">
                 <div class="row">
                     <div class="col-md-12 col-sm-6" id="currentTempMinMax"> 
-                        <h3 class="pr-3">${Math.floor(data.city.list[0].main.temp)}&deg;C</h3>
+                        <h3 class="pr-3">${Math.floor(data.city.list[0].main.temp)}&deg;${metric === 'kelvin' ? 'K' : metric ==='imperial' ? 'F' : 'C'}</h3>
                         <span class="d-block ml-3 ">max ${Math.floor(data.city.list[0].main.temp_max)}&deg;</span>
                         <span class="d-block ml-3 ">min ${Math.floor(data.city.list[0].main.temp_min)}&deg;</span>
                     </div>
@@ -119,4 +123,54 @@ class UI {
             this.weather.appendChild(createDiv)
         }
     }
+
+    showMultiCityFahren(data) {
+        this.weather.innerHTML = ''
+        openWeatherTitle.innerHTML = 'OPEN WEATHER'
+        countryInit.innerHTML = 'SEARCH FOR CURRENT WEATHER DATA'
+        for (let i = 0; i < data.multiCity.cnt; i++) {
+            let createDiv = document.createElement('div');
+            createDiv.setAttribute('class', 'col-lg-3 col-md-3 mx-auto text-center')
+            createDiv.setAttribute('id', 'cities')
+            createDiv.innerHTML =
+                `   
+                <img src="assets/${data.multiCity.list[i].weather[0].icon}.png" id="w-icon">
+                <h6 id="w-desc">${data.multiCity.list[i].weather[0].description.toUpperCase()}</h6>
+                    <ul id="w-details" class="mx-auto">    
+                        <li class="list-group-item" id="w-perception">Perception: ${data.multiCity.list[i].clouds.all}%</li>
+                        <li class="list-group-item" id="w-humidity">Humidity: ${data.multiCity.list[i].main.humidity}%</li>
+                        <li class="list-group-item" id="w-wind">Wind: ${data.multiCity.list[i].wind.speed} m/s</li>
+                    </ul>
+                <h3 id="w-temp">${Math.floor(data.multiCity.list[i].main.temp)}&deg;F</h3>
+                <h5 id="w-location">${data.multiCity.list[i].name.toUpperCase()},${data.multiCity.list[i].sys.country}</h5>
+        `
+            this.weather.appendChild(createDiv)
+        }
+    }
+
+    showMultiCityKelvin(data) {
+        this.weather.innerHTML = ''
+        openWeatherTitle.innerHTML = 'OPEN WEATHER'
+        countryInit.innerHTML = 'SEARCH FOR CURRENT WEATHER DATA'
+        for (let i = 0; i < data.multiCityKelvin.cnt; i++) {
+            let createDiv = document.createElement('div');
+            createDiv.setAttribute('class', 'col-lg-3 col-md-3 mx-auto text-center')
+            createDiv.setAttribute('id', 'cities')
+            createDiv.innerHTML =
+                `   
+                <img src="assets/${data.multiCityKelvin.list[i].weather[0].icon}.png" id="w-icon">
+                <h6 id="w-desc">${data.multiCityKelvin.list[i].weather[0].description.toUpperCase()}</h6>
+                    <ul id="w-details" class="mx-auto">    
+                        <li class="list-group-item" id="w-perception">Perception: ${data.multiCityKelvin.list[i].clouds.all}%</li>
+                        <li class="list-group-item" id="w-humidity">Humidity: ${data.multiCityKelvin.list[i].main.humidity}%</li>
+                        <li class="list-group-item" id="w-wind">Wind: ${data.multiCityKelvin.list[i].wind.speed} km/h</li>
+                    </ul>
+                <h3 id="w-temp">${Math.floor(data.multiCityKelvin.list[i].main.temp)}&deg;K</h3>
+                <h5 id="w-location">${data.multiCityKelvin.list[i].name.toUpperCase()},${data.multiCityKelvin.list[i].sys.country}</h5>
+        `
+            this.weather.appendChild(createDiv)
+        }
+    }
+
+
 }

@@ -31,8 +31,10 @@
     color: white;
 }
 
-#activeCelsius {
-    border-bottom: 2px solid;
+.activeMetric {
+    border-bottom: 3px solid;
+    color: white;
+    font-weight: 900;
 }
 
 .header input {
@@ -50,7 +52,6 @@
     height: 100%;
     left: -350px;
     transition: all 0.8s ease-in-out;
-
 }
 
 #nav-sidebar-closed ul {
@@ -68,17 +69,15 @@
     z-index: 100;
     text-decoration: none;
     transition: all 0.6s ease-in-out;
-
 }
-
 
 #languages li {
     text-decoration: none;
-
 }
 
 ::-webkit-scrollbar-track {
     background-color: white;
+    margin: 40px 0;
 }
 
 ::-webkit-scrollbar {
@@ -88,17 +87,27 @@
 
 ::-webkit-scrollbar-thumb {
     background-color: #888;
+    margin: 40px 10px;
+}
+
+::-webkit-scrollbar-corner {
+    color: transparent;
+}
+
+#arrowup {
+    float: right;
 }
 
 #languagesListItem {
     position: absolute;
+    top: 0;
     height: auto;
     max-height: 270px;
     overflow: auto;
     text-align: left;
-    font-weight: 800;
+    font-weight: 300;
     background: white;
-    box-shadow: inner 0 0 5px #888;
+    border-right: 25px solid white;
 }
 
 #languagesListItem a {
@@ -118,15 +127,40 @@
     font-weight: 100;
 }
 
-#nav-sidebar-open ul {
-    font-family: 'Lato', sans-serif;
-    transition: all 0.3s ease-in-out;
-
+#metricListenerMobile {
+    height: auto !important;
 }
 
-#nav-sidebar-open li:hover {
+#metricListenerMobile li {
+    height: 40px !important;
+    color: white;
+    justify-content: center;
+}
+
+#metricListenerMobile li:hover {
+    background-color: #0e8ea6;
+    color: white !important;
+}
+
+#metricListenerMobile li a {
+    color: #4d4d4d
+}
+
+#metricListenerMobile ul {
+    transition: all 0.3s ease-in-out;
+}
+
+#metricListenerMobile li a {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #4d4d4d;
+}
+
+#metricListenerMobile li a:hover {
     background-color: #0e8ea6;
     color: white;
+    font-weight: 300;
 }
 
 #searchBtn {
@@ -137,13 +171,11 @@
 
 #searchWeather {
     height: 50px;
-
 }
 
 #inputGroup {
     background: rgba(255, 255, 255, 0.2);
     width: auto;
-
 }
 
 #inputGroup {
@@ -204,9 +236,6 @@
     padding: 10%;
 }
 
-#currentCityWeatherInfo {}
-
-
 #currentTempMinMax {
     font-family: 'Lato', sans-serif;
 }
@@ -226,7 +255,6 @@
     font-weight: 900;
     text-align: start;
     margin-left: 65px;
-
 }
 
 #currentDescInfo {
@@ -257,19 +285,13 @@
     font-family: 'Lato', sans-serif;
 }
 
-#dayOne {}
-
 #dayOne div img {
     width: 50px;
 }
 
-#dayTwo {}
-
 #dayTwo div img {
     width: 50px;
 }
-
-#dayThree {}
 
 #dayThree div img {
     width: 50px;
@@ -329,7 +351,6 @@
     #inputGroup button {
         width: 200px;
         display: block !important;
-
     }
 
     .header input {
@@ -372,8 +393,6 @@
 
 /* ******************************************************************************************** */
 @media screen and (min-width: 576px) and (max-width: 768px) {
-
-    #row {}
 
     #currentCityWeatherImg img {
         width: 100px;
@@ -425,12 +444,10 @@
         width: auto;
     }
 
-
     #inputGroup button {
         width: 100px;
         display: block !important;
     }
-
 
     #weatherInfo {
         font-family: 'Lato', sans-serif;
