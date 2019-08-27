@@ -10,13 +10,6 @@ const hamburgerList = document.querySelector('#nav-sidebar-closed')
 const closeHamburger = document.querySelector('#closeHamburger')
 const searchWeather = document.querySelector('#searchWeather')
 const searchBtn = document.querySelector('#searchBtn')
-const weatherDesc = document.querySelector('#w-desc')
-const weatherTemp = document.querySelector('#w-temp')
-const weatherLocation = document.querySelector('#w-location')
-const weatherPerception = document.querySelector('#w-perception')
-const weatherHumidity = document.querySelector('#w-humidity')
-const weatherWind = document.querySelector('#w-wind')
-const weatherIcon = document.querySelector('#w-icon')
 const weatherInfo = document.querySelector('#weatherInfo')
 const openWeatherTitle = document.querySelector('#openWeatherTitle')
 const countryInit = document.querySelector('#countryInit')
@@ -59,10 +52,7 @@ closeHamburger.addEventListener('click', function () {
 
 // On page load show cities
 window.onload = function () {
-    weather.getWeather()
-        .then(data => {
-            ui.showMultiCity(data)
-        })
+    listCities('activeCelsius')
 }
 
 // Button event listener calling input search city
@@ -83,20 +73,20 @@ metric.addEventListener('click', function (e) {
 
 // List the cities in specific metric type
 function listCities(metricType) {
-    if (metricType == 'activeCelsius') {
+    if (metricType === 'activeCelsius') {
         weather.getWeather()
             .then(data => {
-                ui.showMultiCity(data)
+                ui.showMultiCity(data, metricType)
             })
-    } else if (metricType == 'imperial') {
+    } else if (metricType === 'imperial') {
         weather.getWeather('imperial')
             .then(data => {
-                ui.showMultiCityFahren(data)
+                ui.showMultiCity(data, metricType)
             })
     } else {
-        weather.getWeather()
+        weather.getWeather('kelvin')
             .then(data => {
-                ui.showMultiCityKelvin(data)
+                ui.showMultiCity(data, metricType)
             })
     }
 }
@@ -109,38 +99,33 @@ function singleCity(metricTypeGlobal) {
             ui.showSingleCity(data, metricTypeGlobal)
         }).catch(error => {
             $('#modal').modal('show')
-
-
         })
     searchWeather.value = ''
 }
 
 // Input keyCode enter functionality
 searchWeather.addEventListener('keyup', function (e) {
-    console.log(e.keyCode)
-
     if (e.keyCode === 13) {
         singleCity(metricTypeGlobal)
     }
 })
 
 
-/*  // keyboard press functionality, search city on evry keyup
-searchWeather.addEventListener('keyup', function (e) {
-    const userText = e.target.value
-    if (userText !== '') {
-        weather.getSingleWeather(userText)
-            .then(data => {
-                if (data.city.cod === '404') {
-                    weather.getWeather()
-                        .then(data => {
-                            ui.showDefault(data)
-                        })
-                } else {
-                    ui.showSingleCity(data)
-                }
+// keyboard press functionality, search city on every keyup
+// searchWeather.addEventListener('keyup', function (e) {
+//     const userText = e.target.value
+//     if (userText !== '') {
+//         weather.getSingleWeather(userText)
+//             .then(data => {
+//                 if (data.city.cod === '404') {
+//                     weather.getWeather()
+//                         .then(data => {
+//                             ui.showDefault(data)
+//                         })
+//                 } else {
+//                     ui.showSingleCity(data)
+//                 }
 
-            })
-    }
-})  
-*/ 
+//             })
+//     }
+// })  

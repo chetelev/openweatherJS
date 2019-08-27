@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <div id="nav-sidebar-closed" class="anim-trans">
-        <ul class="list-group anim-trans" id="metricListenerMobile">
+    <div id="nav-sidebar-closed">
+        <ul class="list-group" id="metricListenerMobile">
             <p><img src="assets/close.png" class="pt-3 ml-3" alt="close" id="closeHamburger"></p>
             <p class="list-group-item p-3 font-weight-light" id="metricDisabled">METRIC</p>
             <li class="nav-item">
@@ -32,10 +32,8 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
                 <a><img src="assets/menu.png" alt="hamburger" id="hamburgerIcon"></a>
                 <div class="collapse navbar-collapse" id="navbarNav">
+                    <a class="nav-link" id="metricSpan">Metric:</a>
                     <ul class="navbar-nav" id="metricListener">
-                        <li class="nav-item">
-                            <span class="nav-link disabled" id="metricSpan">Metric:</span>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="kelvin">Kelvin</a>
                         </li>
@@ -85,16 +83,15 @@
             </section>
         </div>
     </div>
-    <p class="display-5 d-flex justify-content-center m-2 pb-5 pt-3" id="weatherInfo">TODAY WEATHER IN FEATURED CITIES
+    <p class="display-4 d-flex justify-content-center text-center m-3 p-3" id="weatherInfo">TODAY WEATHER IN FEATURED
+        CITIES
     </p>
 
-    <div class="container" id="footer">
-        <div class="row" id="row">
+    <div class="container">
+        <div class="row align-items-start" id="row">
 
         </div>
     </div>
-
-
 
     <div id="modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
         aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -102,7 +99,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="body-message">
-                        <h6 class="display-4 ">Error</h4>
+                        <h6 class="display-4 ">Error</h6>
                         <p class="lead ">City does not exists<br> Please try again</p>
                     </div>
                 </div>
