@@ -47,7 +47,6 @@ class UI {
                 <div class="row align-items-center">
                     <div class="col-md-8 col-sm-6" id="currentTempMinMax"> 
                         <h3 class="display-6">${Math.floor(data.city.list[0].main.temp)}&deg;${metric === 'kelvin' ? 'K' : metric ==='imperial' ? 'F' : 'C'}</h3>
-
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <p class="mb-0">max ${Math.floor(data.city.list[0].main.temp_max)}&deg;</p>
